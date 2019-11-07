@@ -24,7 +24,7 @@ const responseTypesByRequestType = {
 app.use('*', (req, res) => {
   console.log('\n' + '=========='.repeat(15))
   console.log('=========='.repeat(15))
-  const responseKey = responseTypesByRequestType[Object.keys(req.body)[0]]
+  const responseKey = responseTypesByRequestType[Object.keys(req.body)[0]] || 'data'
   res.send({
     [responseKey]: {Body: req.body}
   })
